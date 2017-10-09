@@ -1,4 +1,4 @@
-package de.fhro.inf.prg3.inheritance;
+package de.fhro.inf.prg3.a03;
 
 /**
  * @author Peter Kurfer
@@ -6,9 +6,9 @@ package de.fhro.inf.prg3.inheritance;
  */
 public enum GenusSpecies {
 
-	GENUS_SPECIES_LION("Panthera leo", "Lion"),
-	GENUS_SPECIES_GAZELLE("Gazella leptoceros", "Gazelle"),
-	GENUS_SPECIES_FLAMINGO("Phoenicopterus jamesi", "Flamingo");
+	LION("Panthera leo", "Lion"),
+	GAZELLE("Gazella leptoceros", "Gazelle"),
+	FLAMINGO("Phoenicopterus jamesi", "Flamingo");
 
 	private String readableType;
 	private String type;

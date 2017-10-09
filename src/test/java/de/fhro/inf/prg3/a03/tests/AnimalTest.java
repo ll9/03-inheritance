@@ -1,7 +1,7 @@
-package de.fhro.inf.prg3.inheritance.tests;
+package de.fhro.inf.prg3.a03.tests;
 
-import de.fhro.inf.prg3.inheritance.Animal;
-import de.fhro.inf.prg3.inheritance.GenusSpecies;
+import de.fhro.inf.prg3.a03.Animal;
+import de.fhro.inf.prg3.a03.GenusSpecies;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -25,7 +25,7 @@ public class AnimalTest {
 
 	@BeforeEach
 	void setUp() {
-		animal = new Animal(GenusSpecies.GENUS_SPECIES_FLAMINGO, "Horst", new GenusSpecies[0], Sleep, Awake, Digest, 10);
+		animal = new Animal(GenusSpecies.FLAMINGO, "Horst", new GenusSpecies[0], Sleep, Awake, Digest, 10);
 	}
 
 	@Test
