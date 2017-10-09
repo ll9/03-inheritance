@@ -2,4 +2,4 @@
 
 ![state machine](images/state-machine.svg)
 
-![classes](images/classes.svg)
+![classes](images/class-spec.svg)

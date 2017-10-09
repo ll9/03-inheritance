@@ -1,20 +1,3 @@
-# State machine
-
-```
-@startuml
-[*] --> Hungry
-Hungry --> Dead : not fed
-Dead --> [*]
-Hungry --> Digesting : fed
-Digesting --> Playful
-Playful --> Sleeping
-Sleeping --> Hungry
-@enduml
-```
-
-# Class diagram
-
-```
 @startuml
 enum GenusSpecies {
 
@@ -116,4 +99,3 @@ State <|-- PlayfulState
 State <|-- SleepingState
 State <|-- DeathState
 @enduml
-```
