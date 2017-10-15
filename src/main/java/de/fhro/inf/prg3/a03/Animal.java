@@ -15,9 +15,7 @@ public class Animal {
 
 	private static final Logger logger = LogManager.getLogger();
 
-	public enum State {SLEEPING, HUNGRY, DIGESTING, PLAYFUL, DEAD}
-
-	private State state = State.SLEEPING;
+	public State state;
 
 	// state durations (set via constructor), ie. the number of ticks in each state
 	private final int sleep;
@@ -44,47 +42,13 @@ public class Animal {
 		this.awake = awake;
 		this.digest = digest;
 		this.collectionAmount = collectionAmount;
+		this.state = new SleepingState(this);
 
 		Arrays.sort(this.devours);
 	}
 
 	public void tick(){
-		logger.info("tick()");
-		time++;
-		switch (state) {
-			case SLEEPING:
-				if (time == sleep) {
-					logger.info("Yoan... getting hungry!");
-					state = HUNGRY;
-					time = 0;
-				}
-				break;
-			case HUNGRY:
-				if(time == awake){
-					logger.info("I've starved for a too long time...good bye...");
-					state = DEAD;
-				}
-				break;
-			case DIGESTING:
-				if (++timeSinceFeed == digest) {
-					logger.info("Getting in a playful mood!");
-					state = PLAYFUL;
-					timeSinceFeed = 0;
-				}
-				break;
-			case PLAYFUL:
-				if (time == awake) {
-					logger.info("Yoan... getting tired!");
-					state = SLEEPING;
-					time = 0;
-				}
-				break;
-
-			case DEAD:
-				break;
-			default:
-				throw new IllegalStateException("Unknown cat state " + state.name());
-		}
+		state = state.tick();
 
 		logger.info(state.name());
 

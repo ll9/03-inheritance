@@ -2,7 +2,7 @@ package de.fhro.inf.prg3.a03;
 
 public class HungryState extends State {
     public HungryState(Animal animal) {
-        super(animal, animal.getAwake());
+        super(animal, animal.getAwake(), "hungry");
     }
 
     @Override

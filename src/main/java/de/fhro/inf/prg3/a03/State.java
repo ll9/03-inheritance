@@ -9,10 +9,12 @@ public abstract class State {
     protected Animal animal;
     private int t = 0;
     private int duration;
+    private String name;
 
-    public State(Animal animal, int duration) {
+    public State(Animal animal, int duration, String name) {
         this.animal = animal;
         this.duration = duration;
+        this.name = name;
     }
 
     State tick() {
@@ -27,4 +29,8 @@ public abstract class State {
     }
 
     abstract State successor();
+
+    public String getName() {
+        return name;
+    }
 }

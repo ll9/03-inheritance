@@ -2,7 +2,7 @@ package de.fhro.inf.prg3.a03;
 
 public class SleepingState extends State {
     public SleepingState(Animal animal) {
-        super(animal, animal.getSleep());
+        super(animal, animal.getSleep(), "sleeping");
     }
 
     @Override
