@@ -5,7 +5,6 @@ import org.apache.logging.log4j.Logger;
 
 import java.util.Arrays;
 
-import static de.fhro.inf.prg3.a03.Animal.State.*;
 
 /**
  * @author Peter Kurfer
@@ -15,7 +14,7 @@ public class Animal {
 
 	private static final Logger logger = LogManager.getLogger();
 
-	public State state;
+	private State state;
 
 	// state durations (set via constructor), ie. the number of ticks in each state
 	private final int sleep;
@@ -49,18 +48,15 @@ public class Animal {
 
 	public void tick(){
 		state = state.tick();
-
-		logger.info(state.name());
+		logger.info(state.getName());
 
 	}
 
 	public void feed(){
-		if (!state.equals(State.HUNGRY))
+		if (!state.getClass().equals(HungryState.class))
 			throw new IllegalStateException("Can't stuff a cat...");
 
-		logger.info("You feed the cat...");
-		time = 0;
-		state = State.DIGESTING;
+		state = ((HungryState) state).feed();
 
 	}
 
@@ -80,23 +76,23 @@ public class Animal {
 	}
 
 	public boolean isAsleep() {
-		return state.equals(State.SLEEPING);
+		return state.getClass().equals(SleepingState.class);
 	}
 
 	public boolean isPlayful() {
-		return state.equals(State.PLAYFUL);
+		return state.getClass().equals(PlayfulState.class);
 	}
 
 	public boolean isHungry() {
-		return state.equals(State.HUNGRY);
+		return state.getClass().equals(HungryState.class);
 	}
 
 	public boolean isDigesting() {
-		return state.equals(State.DIGESTING);
+		return state.getClass().equals(DigestingState.class);
 	}
 
 	public boolean isDead() {
-		return state == State.DEAD;
+		return state.getClass() == DeathState.class;
 	}
 
 	public int getSleep() {
