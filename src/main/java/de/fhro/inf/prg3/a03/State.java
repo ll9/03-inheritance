@@ -17,7 +17,7 @@ public abstract class State {
         this.name = name;
     }
 
-    State tick() {
+    final State tick() {
         logger.info("tick()");
         t++;
         if (t < duration) {
