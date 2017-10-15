@@ -26,4 +26,8 @@ public enum GenusSpecies {
 		return type;
 	}
 
+	public static void main(String args[]) {
+		for (GenusSpecies genusSpecies: GenusSpecies.values())
+			System.out.println(genusSpecies);
+	}
 }
