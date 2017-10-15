@@ -40,6 +40,8 @@ This method is needed to get the successor state if enough time passed (e.g. the
 
 Note that the `State.tick()` method should be marked `final`; why is that?
 
+_Because the child classes should not be able to override the tick method_
+
 _Hint: there's still one special case: when the animal was fed it's switching to the **digesting** state immediately no matter how long it was hungry before._
 
 The test suite to ensure that the behavior is still the same is given, too.
