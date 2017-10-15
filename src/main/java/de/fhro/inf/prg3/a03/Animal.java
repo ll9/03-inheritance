@@ -134,4 +134,16 @@ public class Animal {
 	public boolean isDead() {
 		return state == State.DEAD;
 	}
+
+	public int getSleep() {
+		return sleep;
+	}
+
+	public int getAwake() {
+		return awake;
+	}
+
+	public int getDigest() {
+		return digest;
+	}
 }
